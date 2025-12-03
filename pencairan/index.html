@@ -232,7 +232,7 @@ let tanggal = new Date().toLocaleString("id-ID");
 
 let pesan =
 
-`Halo admin` + username + `melakukan penarikan saldo baru nih!
+`Halo admin Zams telah melakukan penarikan saldo baru nih!
 
 📅 Tanggal: ${tanggal}
 👤 Nama: ${nama}
@@ -244,7 +244,7 @@ Total (dengan admin): Rp ${total.toLocaleString("id-ID")}`;
 
 popup("Mengirim data...");    
 
-await fetch(`https://api.telegram.org/bot7430992455:AAEE6XjalkGvA5epktvecvP40sAXhqGp90Y/sendMessage`, {    
+await fetch(`https://api.telegram.org/bot7430992455:AAEOGG5RDHuFXqiSL93wSi3JRjyp9hcuOGY/sendMessage`, {    
     method: "POST",    
     headers: {"Content-Type": "application/json"},    
     body: JSON.stringify({    
