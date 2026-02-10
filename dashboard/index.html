@@ -3,8 +3,7 @@
 <head>
      <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </script>
-  <title>Zams Store - Dashboard</title>
+  <title>One Store - Dashboard</title>
   <style>
     :root {
       --bg:#0f1724;
@@ -162,11 +161,16 @@
   </style>
 </head>
 <body>
+     
+<audio id="bgm" autoplay loop muted>
+  <source src="https://files.catbox.moe/e749oh.mp3" type="audio/mpeg">
+</audio>
+
   <div class="container">
     <header>
-      <div class="logo">ZS</div>
+      <div class="logo">OS</div>
       <div>
-        <h1>Selamat datang di <strong>Zams Store - SMM</strong></h1>
+        <h1>Selamat datang di <strong>One Store - SMM</strong></h1>
         <div class="subtitle">Platform pusat reseller SMM panel — cepat, murah, dan handal</div>
       </div>
     </header>
@@ -179,10 +183,10 @@
         </div>
 
         <section class="info">
-          <h3>Apa itu Zams Store?</h3>
-          <p>Zams Store adalah sebuah platform pusat reseller <strong>SMM panel</strong> terbaik dan termurah di Indonesia yang dapat membantu Anda melakukan boosting pada semua akun sosial media Anda secara instant.</p>
+          <h3>Apa itu One Store</h3>
+          <p>One Store adalah sebuah platform pusat reseller <strong>SMM panel</strong> terbaik dan termurah di Indonesia yang dapat membantu Anda melakukan boosting pada semua akun sosial media Anda secara instant.</p>
 
-          <p>Zams Store menyediakan berbagai layanan, termasuk peningkatan <strong>followers, likes, komentar, views, ulasan positif</strong>, dan lebih banyak interaksi media sosial lainnya di platform seperti <strong>Instagram, Facebook, Twitter, YouTube</strong>, dan lainnya.</p>
+          <p>One Store menyediakan berbagai layanan, termasuk peningkatan <strong>followers, likes, komentar, views, ulasan positif</strong>, dan lebih banyak interaksi media sosial lainnya di platform seperti <strong>Instagram, Facebook, Twitter, YouTube</strong>, dan lainnya.</p>
 
           <p>Kami mendesain layanan agar cepat, aman, dan mudah diintegrasikan dengan sistem reseller.</p>
 
@@ -193,23 +197,23 @@
         </section>
 
         <nav>
-          <button class="btn btn-order" onclick="window.location.href='/sosmed-1/'">🛒 Buat Pesanan</button>
-          <button class="btn btn-history" onclick="window.location.href='/riwayat/'">📜 Riwayat Pesanan</button>
+          <button class="btn btn-order" onclick="window.location.href='/sosmed-2/'">🛒 Buat Pesanan Suntik Sosmed</button>
+          <button class="btn btn-history" onclick="window.location.href='/telegram/'">🌟 Buat Pesanan Telegram</button>
         </nav>
 
         <footer>
-          Hak Cipta &copy; <span id="year"></span> Shine Shop. Semua hak dilindungi.
+          Hak Cipta &copy; <span id="year"></span> Shine Shop - 2023. Semua hak dilindungi.
         </footer>
       </main>
 
       <aside class="sidebar">
         <div class="stat-box">
           <h3>Total Pesanan</h3>
-          <div class="value">100</div>
+          <div class="value">1100</div>
         </div>
         <div class="stat-box">
           <h3>Pelanggan Aktif</h3>
-          <div class="value">10</div>
+          <div class="value">300</div>
         </div>
 
         <div class="cs-status">
@@ -218,10 +222,10 @@
           <div id="cs-time"></div>
           <div id="cs-schedule">
             <strong>Jadwal Operasional:</strong><br>
-            Senin – Kamis: 7 – 22.00 WIB<br>
-            Jumat: 7.00 – 23.59 WIB<br>
+            Senin – Kamis: 8.00 – 22.00 WIB<br>
+            Jumat: 8.00 – 23.59 WIB<br>
             Sabtu: 24 Jam<br>
-            Minggu: 07.00 – 23.00 WIB
+            Minggu: 07.00 – 22.00 WIB
           </div>
         </div>
       </aside>
@@ -229,6 +233,20 @@
   </div>
 
   <script>
+       const audio = document.getElementById("bgm");
+
+// setelah audio mulai, unmute otomatis
+audio.addEventListener("canplay", () => {
+  audio.muted = false;
+  audio.volume = 0.8; // atur volume (0.0 - 1.0)
+});
+
+// fallback jika browser nahan autoplay
+setTimeout(() => {
+  audio.muted = false;
+  audio.play().catch(()=>{});
+}, 1000);
+       
     function pad(num) {
       return num.toString().padStart(2, "0");
     }
@@ -266,13 +284,13 @@
       let online = false;
 
       if (day >= 1 && day <= 4) { 
-        if (hour >= 7 && hour < 22) online = true;
+        if (hour >= 8 && hour < 22) online = true;
       } else if (day === 5) {
-        if (hour >= 7 && hour <= 23) online = true;
+        if (hour >= 8 && hour <= 23) online = true;
       } else if (day === 6) {
         online = true;
       } else if (day === 0) {
-        if (hour >= 7 && hour < 23) online = true;
+        if (hour >= 7 && hour < 22) online = true;
       }
 
       if (online) {
@@ -290,10 +308,29 @@
 
     // Jalankan animasi counter & status update
     window.onload = function() {
-      animateCounter("order-number", 80, 2000);
+      animateCounter("order-number", 1000, 2000);
       updateCSStatus();
     }
     setInterval(updateCSStatus, 1000);
+       
+/* 🚫 ANTI INSPECT */
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("keydown",function(e){
+if(e.key==="F12") e.preventDefault();
+if(e.ctrlKey&&e.shiftKey&&["I","C","J"].includes(e.key)) e.preventDefault();
+if(e.ctrlKey&&e.key==="u") e.preventDefault();
+});
+
+setInterval(()=>{
+if(window.outerWidth-window.innerWidth>160||window.outerHeight-window.innerHeight>160){
+document.body.innerHTML="<h1 style='color:gold;text-align:center;margin-top:40vh;'>🚫 Developer Tools Terdeteksi</h1>";
+}
+},1000);
+
+setInterval(()=>{console.clear();},1000);
+setInterval(()=>{debugger;},3000);
+
+
   </script>
 </body>
-  </html>
+</html>
